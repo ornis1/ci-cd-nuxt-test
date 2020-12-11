@@ -1,10 +1,12 @@
 module.exports = {
   apps: [
     {
-      name: "start front",
+      name: "front",
       script: "yarn",
       args: "start",
       watch: ".",
+      watch_delay: 1000,
+
       env: {
         PORT: 7000
       }
