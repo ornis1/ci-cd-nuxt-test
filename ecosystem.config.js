@@ -8,7 +8,8 @@ module.exports = {
       watch_delay: 1000,
 
       env: {
-        PORT: 7000
+        PORT: 7000,
+        HOST: "127.0.0.1"
       }
     }
   ]
