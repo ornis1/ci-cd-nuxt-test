@@ -18,9 +18,6 @@ jobs:
         node-version: [12.x]
 
     steps:
-        env:
-          TEST: ${{ secrets.TEST }}
-          PORT: ${{ secrets.PORT }}
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -30,7 +27,7 @@ jobs:
         run: npm i
       - name: Test
         run: |
-          if [ "$TEST" == "4000" ]
+          if [ "$PORT" == "4000" ]
           then
             echo "Got secret"
           fi
@@ -42,7 +39,7 @@ jobs:
           fi
       - name: Test3
         run: |
-          if [ "$TEST" == 4000 ]
+          if [ "$PORT" == 4000 ]
           then
             echo "Got secret"
           fi
@@ -53,7 +50,9 @@ jobs:
             echo "Got secret"
           fi
       - name: Build
-
+        env:
+          TEST: ${{ secrets.TEST }}
+          PORT: ${{ secrets.PORT }}
         run: |
           PORT=$PORT
           TEST=$TEST
