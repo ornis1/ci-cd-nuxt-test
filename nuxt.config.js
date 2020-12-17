@@ -30,4 +30,7 @@ export default {
   env: {
     test: process.env.TEST,
   },
+  server: {
+    port: process.env.PORT || 3000,
+  },
 };

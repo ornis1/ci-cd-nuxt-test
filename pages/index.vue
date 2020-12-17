@@ -32,7 +32,7 @@ export default {
   asyncData({ env }) {
     console.log(env);
 
-    return { message: process?.env?.TEST || "default message" };
+    return { message: env.test || "default message" };
   },
 };
 </script>
