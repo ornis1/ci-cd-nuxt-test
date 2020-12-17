@@ -28,5 +28,8 @@ jobs:
       - name: Build
         env:
           TEST: ${{secrets.TEST}}
-        run: npm run build --if-present
+        run: |
+          PORT=${{secrets.PORT}}
+          TEST=${{secrets.TEST}}
+          npm run build --if-present
       - run: pm2 reload front
