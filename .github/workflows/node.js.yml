@@ -25,9 +25,34 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install
         run: npm i
+      - name: Test
+        run: |
+          if [ "$TEST" == "4000" ]
+          then
+            echo "Got secret"
+          fi
+      - name: Test1
+        run: |
+          if [ "${{ secrets.PORT }}" == "4000" ]
+          then
+            echo "Got secret"
+          fi
+      - name: Test3
+        run: |
+          if [ "$TEST" == 4000 ]
+          then
+            echo "Got secret"
+          fi
+      - name: Test4
+        run: |
+          if [ "${{ secrets.PORT }}" == 4000 ]
+          then
+            echo "Got secret"
+          fi
       - name: Build
         env:
-          TEST: ${{secrets.TEST}}
+          TEST: ${{ secrets.TEST }}
+          PORT: ${{ secrets.PORT }}
         run: |
           PORT=$PORT
           TEST=$TEST
