@@ -2,15 +2,10 @@ module.exports = {
   apps: [
     {
       name: "front",
-      script: "yarn",
+      mode: "cluster",
+      instances: 4,
+      script: "./node_modules/nuxt/bin/nuxt.js",
       args: "start",
-      watch: ".",
-      watch_delay: 1000,
-
-      env: {
-        PORT: 7000,
-        HOST: "127.0.0.1"
-      }
-    }
-  ]
+    },
+  ],
 };
