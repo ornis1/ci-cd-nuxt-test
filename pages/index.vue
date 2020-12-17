@@ -2,7 +2,9 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">nuxt kappa keppo</h1>
+      <h1 class="title">
+        {{ message }}
+      </h1>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -26,7 +28,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+  asyncData({ env }) {
+    console.log(env);
+    return { message: process?.env?.TEST || "default message" };
+  },
+};
 </script>
 
 <style>
