@@ -31,6 +31,9 @@ jobs:
           then
             echo "Got secret"
           fi
+        env:
+          TEST: ${{ secrets.TEST }}
+          PORT: ${{ secrets.PORT }}
       - name: Test1
         run: |
           if [ "${{ secrets.PORT }}" == "4000" ]
@@ -43,6 +46,9 @@ jobs:
           then
             echo "Got secret"
           fi
+        env:
+          TEST: ${{ secrets.TEST }}
+          PORT: ${{ secrets.PORT }}
       - name: Test4
         run: |
           if [ "${{ secrets.PORT }}" == 4000 ]
@@ -52,9 +58,9 @@ jobs:
       - name: Build
         env:
           TEST: ${{ secrets.TEST }}
+          TEST1: Hello Man
           PORT: ${{ secrets.PORT }}
+          PORT1: 1337
         run: |
-          PORT=$PORT
-          TEST=$TEST
           npm run build --if-present
       - run: pm2 reload front

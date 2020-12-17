@@ -29,6 +29,9 @@ export default {
   build: {},
   env: {
     test: process.env.TEST,
+    test1: process.env.TEST1,
+    port: process.env.PORT,
+    port1: process.env.PORT1,
   },
   server: {
     port: process.env.PORT || 3000,
